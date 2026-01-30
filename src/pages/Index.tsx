@@ -166,6 +166,75 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Exclusive Offer Banner */}
+      <section className="py-8">
+        <div className="luxury-container">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative rounded-3xl overflow-hidden bg-gradient-to-l from-primary via-primary/90 to-primary/80"
+          >
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2" />
+            </div>
+            
+            <div className="relative px-8 py-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-right space-y-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full"
+                >
+                  <Sparkles className="w-4 h-4 text-white" />
+                  <span className="text-white text-sm font-medium">عرض حصري لفترة محدودة</span>
+                </motion.div>
+                
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white">
+                  وفّري حتى <span className="text-white/90">40%</span>
+                </h2>
+                <p className="text-white/80 text-lg max-w-md">
+                  على مجموعة مختارة من منتجات العناية بالبشرة والمكياج الفاخر
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <div className="text-center px-6 py-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                  <p className="text-white/70 text-sm mb-1">ينتهي العرض خلال</p>
+                  <div className="flex items-center gap-3 text-white font-display">
+                    <div className="text-center">
+                      <span className="text-2xl font-bold">٢٣</span>
+                      <p className="text-xs opacity-70">ساعة</p>
+                    </div>
+                    <span className="text-xl">:</span>
+                    <div className="text-center">
+                      <span className="text-2xl font-bold">٥٩</span>
+                      <p className="text-xs opacity-70">دقيقة</p>
+                    </div>
+                    <span className="text-xl">:</span>
+                    <div className="text-center">
+                      <span className="text-2xl font-bold">٤٧</span>
+                      <p className="text-xs opacity-70">ثانية</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Link 
+                  to="/shop?sale=true" 
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary rounded-full font-semibold hover:bg-white/90 transition-colors shadow-lg hover:shadow-xl"
+                >
+                  تسوقي العروض
+                  <ArrowLeft className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Best Sellers */}
       <section className="py-24 bg-secondary/30">
         <div className="luxury-container">
