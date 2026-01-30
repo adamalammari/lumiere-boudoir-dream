@@ -423,9 +423,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Reviews - Marquee Animation */}
-      <section className="py-24 bg-secondary/30 overflow-hidden">
-        <div className="luxury-container mb-12">
+      {/* Reviews Section - Enhanced Design */}
+      <section className="py-24 bg-gradient-to-b from-secondary/50 to-background overflow-hidden">
+        <div className="luxury-container mb-16">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -434,38 +434,121 @@ const Index = () => {
           >
             <span className="text-primary text-sm font-medium mb-3 block">شهادات العميلات</span>
             <h2 className="luxury-heading text-3xl md:text-4xl mb-4">ماذا تقول عميلاتنا</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">أكثر من 50,000 عميلة سعيدة بتجربتهن معنا</p>
             <div className="luxury-divider" />
           </motion.div>
         </div>
 
-        {/* Animated Reviews Marquee */}
-        <div className="relative">
-          <div className="flex animate-marquee gap-6" style={{ width: 'max-content' }}>
-            {[...topReviews, ...topReviews].map((review, index) => (
-              <div
-                key={`${review.id}-${index}`}
-                className="w-[350px] flex-shrink-0 luxury-card p-6 space-y-4"
+        {/* First Row - Moving Right to Left */}
+        <div className="relative mb-8">
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          
+          <div className="flex animate-scroll-rtl gap-6">
+            {[...topReviews, ...topReviews, ...topReviews].map((review, index) => (
+              <motion.div
+                key={`row1-${review.id}-${index}`}
+                className="w-[380px] flex-shrink-0 bg-card rounded-3xl p-8 shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
               >
-                <div className="flex items-center gap-1">
+                {/* Quote Icon */}
+                <div className="mb-4">
+                  <svg className="w-10 h-10 text-primary/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
+                  </svg>
+                </div>
+                
+                {/* Rating Stars */}
+                <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                      className={`w-5 h-5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
                     />
                   ))}
                 </div>
-                <h4 className="font-semibold">{review.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{review.comment}</p>
-                <div className="pt-4 border-t border-border/50 flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-sm">{review.customerName}</p>
-                    {review.verified && (
-                      <p className="text-xs text-primary">✓ مشترية موثقة</p>
-                    )}
+                
+                {/* Review Content */}
+                <h4 className="font-display font-semibold text-lg mb-3 text-foreground">{review.title}</h4>
+                <p className="text-muted-foreground leading-relaxed mb-6">{review.comment}</p>
+                
+                {/* Customer Info */}
+                <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                      <span className="text-lg font-display font-semibold text-primary">
+                        {review.customerName.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{review.customerName}</p>
+                      {review.verified && (
+                        <p className="text-xs text-primary flex items-center gap-1">
+                          <Shield className="w-3 h-3" />
+                          مشترية موثقة
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <span className="text-xs text-muted-foreground">{review.date}</span>
+                  <span className="text-sm text-muted-foreground">{review.date}</span>
                 </div>
-              </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Second Row - Moving Left to Right */}
+        <div className="relative">
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          
+          <div className="flex animate-scroll-ltr gap-6">
+            {[...topReviews.slice().reverse(), ...topReviews.slice().reverse(), ...topReviews.slice().reverse()].map((review, index) => (
+              <motion.div
+                key={`row2-${review.id}-${index}`}
+                className="w-[380px] flex-shrink-0 bg-card rounded-3xl p-8 shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
+              >
+                {/* Quote Icon */}
+                <div className="mb-4">
+                  <svg className="w-10 h-10 text-primary/30" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
+                  </svg>
+                </div>
+                
+                {/* Rating Stars */}
+                <div className="flex items-center gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                    />
+                  ))}
+                </div>
+                
+                {/* Review Content */}
+                <h4 className="font-display font-semibold text-lg mb-3 text-foreground">{review.title}</h4>
+                <p className="text-muted-foreground leading-relaxed mb-6">{review.comment}</p>
+                
+                {/* Customer Info */}
+                <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                      <span className="text-lg font-display font-semibold text-primary">
+                        {review.customerName.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{review.customerName}</p>
+                      {review.verified && (
+                        <p className="text-xs text-primary flex items-center gap-1">
+                          <Shield className="w-3 h-3" />
+                          مشترية موثقة
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <span className="text-sm text-muted-foreground">{review.date}</span>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

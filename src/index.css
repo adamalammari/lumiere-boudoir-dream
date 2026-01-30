@@ -263,7 +263,41 @@
     transform: translateY(-4px);
   }
 
-  /* Marquee Animation for Reviews */
+  /* Scroll Animations for Reviews */
+  @keyframes scroll-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  @keyframes scroll-ltr {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-scroll-rtl {
+    animation: scroll-rtl 35s linear infinite;
+    width: max-content;
+  }
+
+  .animate-scroll-ltr {
+    animation: scroll-ltr 35s linear infinite;
+    width: max-content;
+  }
+
+  .animate-scroll-rtl:hover,
+  .animate-scroll-ltr:hover {
+    animation-play-state: paused;
+  }
+
+  /* Legacy Marquee Animation */
   @keyframes marquee {
     0% {
       transform: translateX(0);
