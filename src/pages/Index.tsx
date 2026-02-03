@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import ProductCard from '@/components/product/ProductCard';
 import { categories } from '@/data/categories';
 import { getBestSellers, getNewProducts } from '@/data/products';
-import { getTopReviews } from '@/data/reviews';
+import { getTopReviewsWithProducts } from '@/data/reviews';
 import heroBanner from '@/assets/hero-banner.jpg';
 import promoBanner from '@/assets/promo-banner-1.jpg';
 import perfumePromo from '@/assets/perfume-promo.jpg';
@@ -16,7 +16,7 @@ import offerBanner from '@/assets/offer-banner.jpg';
 const Index = () => {
   const bestSellers = getBestSellers().slice(0, 8);
   const newProducts = getNewProducts().slice(0, 4);
-  const topReviews = getTopReviews(6);
+  const topReviews = getTopReviewsWithProducts(6);
 
   return (
     <div className="min-h-screen bg-background" dir="rtl">
@@ -448,48 +448,57 @@ const Index = () => {
             {[...topReviews, ...topReviews, ...topReviews].map((review, index) => (
               <motion.div
                 key={`row1-${review.id}-${index}`}
-                className="w-[380px] flex-shrink-0 bg-card rounded-3xl p-8 shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
+                className="w-[400px] flex-shrink-0 bg-card rounded-3xl overflow-hidden shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
               >
-                {/* Quote Icon */}
-                <div className="mb-4">
-                  <svg className="w-10 h-10 text-primary/30" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
-                  </svg>
-                </div>
-                
-                {/* Rating Stars */}
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                {/* Product Image */}
+                {review.product && (
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={review.product.images[0]} 
+                      alt={review.product.name_ar}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  ))}
-                </div>
-                
-                {/* Review Content */}
-                <h4 className="font-display font-semibold text-lg mb-3 text-foreground">{review.title}</h4>
-                <p className="text-muted-foreground leading-relaxed mb-6">{review.comment}</p>
-                
-                {/* Customer Info */}
-                <div className="flex items-center justify-between pt-6 border-t border-border/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
-                      <span className="text-lg font-display font-semibold text-primary">
-                        {review.customerName.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">{review.customerName}</p>
-                      {review.verified && (
-                        <p className="text-xs text-primary flex items-center gap-1">
-                          <Shield className="w-3 h-3" />
-                          مشترية موثقة
-                        </p>
-                      )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 right-4 left-4">
+                      <p className="text-background text-sm font-medium truncate">{review.product.name_ar}</p>
                     </div>
                   </div>
-                  <span className="text-sm text-muted-foreground">{review.date}</span>
+                )}
+                
+                <div className="p-6">
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Review Content */}
+                  <h4 className="font-display font-semibold text-base mb-2 text-foreground">{review.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{review.comment}</p>
+                  
+                  {/* Customer Info */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                        <span className="text-sm font-display font-semibold text-primary">
+                          {review.customerName.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm text-foreground">{review.customerName}</p>
+                        {review.verified && (
+                          <p className="text-xs text-primary flex items-center gap-1">
+                            <Shield className="w-3 h-3" />
+                            مشترية موثقة
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -505,48 +514,57 @@ const Index = () => {
             {[...topReviews.slice().reverse(), ...topReviews.slice().reverse(), ...topReviews.slice().reverse()].map((review, index) => (
               <motion.div
                 key={`row2-${review.id}-${index}`}
-                className="w-[380px] flex-shrink-0 bg-card rounded-3xl p-8 shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
+                className="w-[400px] flex-shrink-0 bg-card rounded-3xl overflow-hidden shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
               >
-                {/* Quote Icon */}
-                <div className="mb-4">
-                  <svg className="w-10 h-10 text-primary/30" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z"/>
-                  </svg>
-                </div>
-                
-                {/* Rating Stars */}
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                {/* Product Image */}
+                {review.product && (
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={review.product.images[0]} 
+                      alt={review.product.name_ar}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  ))}
-                </div>
-                
-                {/* Review Content */}
-                <h4 className="font-display font-semibold text-lg mb-3 text-foreground">{review.title}</h4>
-                <p className="text-muted-foreground leading-relaxed mb-6">{review.comment}</p>
-                
-                {/* Customer Info */}
-                <div className="flex items-center justify-between pt-6 border-t border-border/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
-                      <span className="text-lg font-display font-semibold text-primary">
-                        {review.customerName.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">{review.customerName}</p>
-                      {review.verified && (
-                        <p className="text-xs text-primary flex items-center gap-1">
-                          <Shield className="w-3 h-3" />
-                          مشترية موثقة
-                        </p>
-                      )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 right-4 left-4">
+                      <p className="text-background text-sm font-medium truncate">{review.product.name_ar}</p>
                     </div>
                   </div>
-                  <span className="text-sm text-muted-foreground">{review.date}</span>
+                )}
+                
+                <div className="p-6">
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
+                      />
+                    ))}
+                  </div>
+                  
+                  {/* Review Content */}
+                  <h4 className="font-display font-semibold text-base mb-2 text-foreground">{review.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{review.comment}</p>
+                  
+                  {/* Customer Info */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                    <div className="flex items-center gap-2">
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                        <span className="text-sm font-display font-semibold text-primary">
+                          {review.customerName.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm text-foreground">{review.customerName}</p>
+                        {review.verified && (
+                          <p className="text-xs text-primary flex items-center gap-1">
+                            <Shield className="w-3 h-3" />
+                            مشترية موثقة
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}

@@ -1,3 +1,5 @@
+import { products, Product } from './products';
+
 export interface Review {
   id: string;
   productId: string;
@@ -109,4 +111,16 @@ export const getReviewsByProductId = (productId: string): Review[] => {
 
 export const getTopReviews = (limit: number = 5): Review[] => {
   return [...reviews].sort((a, b) => b.helpful - a.helpful).slice(0, limit);
+};
+
+export interface ReviewWithProduct extends Review {
+  product: Product | undefined;
+}
+
+export const getTopReviewsWithProducts = (limit: number = 5): ReviewWithProduct[] => {
+  const topReviews = [...reviews].sort((a, b) => b.helpful - a.helpful).slice(0, limit);
+  return topReviews.map(review => ({
+    ...review,
+    product: products.find(p => p.id === review.productId)
+  }));
 };
