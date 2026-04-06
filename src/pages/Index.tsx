@@ -425,7 +425,7 @@ const Index = () => {
 
       {/* Reviews Section - Enhanced Design */}
       <section className="py-24 bg-gradient-to-b from-secondary/50 to-background overflow-hidden">
-        <div className="luxury-container mb-16">
+        <div className="luxury-container mb-14">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -435,138 +435,112 @@ const Index = () => {
             <span className="text-primary text-sm font-medium mb-3 block">شهادات العميلات</span>
             <h2 className="luxury-heading text-3xl md:text-4xl mb-4">ماذا تقول عميلاتنا</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">أكثر من 50,000 عميلة سعيدة بتجربتهن معنا</p>
-            <div className="luxury-divider" />
+            <div className="luxury-divider mt-4" />
           </motion.div>
         </div>
 
-        {/* First Row - Moving Right to Left */}
-        <div className="relative mb-8">
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        {/* First Row - RTL */}
+        <div className="relative mb-6">
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           
-          <div className="flex animate-scroll-rtl gap-6">
+          <div className="flex animate-scroll-rtl gap-5">
             {[...topReviews, ...topReviews, ...topReviews].map((review, index) => (
-              <motion.div
+              <div
                 key={`row1-${review.id}-${index}`}
-                className="w-[400px] flex-shrink-0 bg-card rounded-3xl overflow-hidden shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
+                className="w-[340px] md:w-[380px] flex-shrink-0 bg-card rounded-2xl overflow-hidden shadow-card border border-border/40 hover:shadow-hover transition-all duration-500 group"
               >
-                {/* Product Image */}
                 {review.product && (
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
                     <img 
                       src={review.product.images[0]} 
                       alt={review.product.name_ar}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-4 left-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+                    <div className="absolute bottom-3 right-4 left-4 flex items-center justify-between">
                       <p className="text-background text-sm font-medium truncate">{review.product.name_ar}</p>
+                      <span className="text-background/80 text-xs">{review.product.price} ر.س</span>
                     </div>
                   </div>
                 )}
-                
-                <div className="p-6">
-                  {/* Rating Stars */}
-                  <div className="flex items-center gap-1 mb-3">
+                <div className="p-5">
+                  <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
-                      />
+                      <Star key={i} className={`w-3.5 h-3.5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`} />
                     ))}
                   </div>
-                  
-                  {/* Review Content */}
-                  <h4 className="font-display font-semibold text-base mb-2 text-foreground">{review.title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{review.comment}</p>
-                  
-                  {/* Customer Info */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
-                        <span className="text-sm font-display font-semibold text-primary">
-                          {review.customerName.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm text-foreground">{review.customerName}</p>
-                        {review.verified && (
-                          <p className="text-xs text-primary flex items-center gap-1">
-                            <Shield className="w-3 h-3" />
-                            مشترية موثقة
-                          </p>
-                        )}
-                      </div>
+                  <h4 className="font-semibold text-sm mb-1.5 text-foreground">{review.title}</h4>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">{review.comment}</p>
+                  <div className="flex items-center gap-2 pt-3 border-t border-border/40">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-semibold text-primary">{review.customerName.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-xs text-foreground">{review.customerName}</p>
+                      {review.verified && (
+                        <p className="text-[10px] text-primary flex items-center gap-0.5">
+                          <Shield className="w-2.5 h-2.5" />
+                          مشترية موثقة
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Second Row - Moving Left to Right */}
+        {/* Second Row - LTR */}
         <div className="relative">
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           
-          <div className="flex animate-scroll-ltr gap-6">
+          <div className="flex animate-scroll-ltr gap-5">
             {[...topReviews.slice().reverse(), ...topReviews.slice().reverse(), ...topReviews.slice().reverse()].map((review, index) => (
-              <motion.div
+              <div
                 key={`row2-${review.id}-${index}`}
-                className="w-[400px] flex-shrink-0 bg-card rounded-3xl overflow-hidden shadow-card border border-border/30 hover:shadow-hover transition-all duration-500 group"
+                className="w-[340px] md:w-[380px] flex-shrink-0 bg-card rounded-2xl overflow-hidden shadow-card border border-border/40 hover:shadow-hover transition-all duration-500 group"
               >
-                {/* Product Image */}
                 {review.product && (
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
                     <img 
                       src={review.product.images[0]} 
                       alt={review.product.name_ar}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 right-4 left-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent" />
+                    <div className="absolute bottom-3 right-4 left-4 flex items-center justify-between">
                       <p className="text-background text-sm font-medium truncate">{review.product.name_ar}</p>
+                      <span className="text-background/80 text-xs">{review.product.price} ر.س</span>
                     </div>
                   </div>
                 )}
-                
-                <div className="p-6">
-                  {/* Rating Stars */}
-                  <div className="flex items-center gap-1 mb-3">
+                <div className="p-5">
+                  <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`}
-                      />
+                      <Star key={i} className={`w-3.5 h-3.5 ${i < review.rating ? 'fill-primary text-primary' : 'text-border'}`} />
                     ))}
                   </div>
-                  
-                  {/* Review Content */}
-                  <h4 className="font-display font-semibold text-base mb-2 text-foreground">{review.title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">{review.comment}</p>
-                  
-                  {/* Customer Info */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                    <div className="flex items-center gap-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
-                        <span className="text-sm font-display font-semibold text-primary">
-                          {review.customerName.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm text-foreground">{review.customerName}</p>
-                        {review.verified && (
-                          <p className="text-xs text-primary flex items-center gap-1">
-                            <Shield className="w-3 h-3" />
-                            مشترية موثقة
-                          </p>
-                        )}
-                      </div>
+                  <h4 className="font-semibold text-sm mb-1.5 text-foreground">{review.title}</h4>
+                  <p className="text-muted-foreground text-xs leading-relaxed mb-3 line-clamp-2">{review.comment}</p>
+                  <div className="flex items-center gap-2 pt-3 border-t border-border/40">
+                    <div className="w-8 h-8 bg-gradient-to-br from-primary/20 to-accent/30 rounded-full flex items-center justify-center">
+                      <span className="text-xs font-semibold text-primary">{review.customerName.charAt(0)}</span>
+                    </div>
+                    <div>
+                      <p className="font-medium text-xs text-foreground">{review.customerName}</p>
+                      {review.verified && (
+                        <p className="text-[10px] text-primary flex items-center gap-0.5">
+                          <Shield className="w-2.5 h-2.5" />
+                          مشترية موثقة
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
