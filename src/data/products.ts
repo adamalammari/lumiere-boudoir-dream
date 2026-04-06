@@ -383,7 +383,7 @@ export const products: Product[] = [
     howToUse: "يُوزع بإسفنجة أو فرشاة من منتصف الوجه للخارج. يُبنى للتغطية المطلوبة.",
     description: "كريم أساس فاخر بتغطية متوسطة قابلة للبناء ولمسة نهائية ساتان طبيعية.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600",
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
@@ -414,7 +414,7 @@ export const products: Product[] = [
     howToUse: "يُوضع على عظام الخد والأنف وفوق الشفاه بفرشاة مروحة.",
     description: "هايلايتر بودرة ناعم يمنح إشراقة ماسية طبيعية دون جليتر ظاهر.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -471,7 +471,7 @@ export const products: Product[] = [
     howToUse: "تُستخدم الألوان الفاتحة كقاعدة والداكنة للتحديد. تُمزج بفرشاة نظيفة.",
     description: "باليت فاخرة بـ 12 لون من الماتي والشيمر بتصبغ عالي وامتزاج سلس.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600",
       "https://images.unsplash.com/photo-1583241800698-e8ab01830a07?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
@@ -948,7 +948,7 @@ export const products: Product[] = [
     howToUse: "يُوضع تحت العين وعلى العيوب بالربت حتى يمتزج.",
     description: "كونسيلر بتغطية عالية يخفي الهالات والعيوب مع لمسة نهائية طبيعية.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -973,7 +973,7 @@ export const products: Product[] = [
     howToUse: "تُوضع بفرشاة أو إسفنجة فوق الأساس للتثبيت.",
     description: "بودرة تثبيت شفافة تمتص الزيوت وتثبت المكياج دون إضافة لون.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -1422,7 +1422,7 @@ export const products: Product[] = [
     howToUse: "يُوضع بعد المرطب وقبل كريم الأساس.",
     description: "برايمر مرطب يملس البشرة ويطيل ثبات المكياج مع إشراقة صحية.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -1634,7 +1634,7 @@ export const products: Product[] = [
     howToUse: "يُوزع بإسفنجة أو فرشاة للحصول على إشراقة طبيعية.",
     description: "كريم أساس مضيء يمنح تغطية متوسطة مع توهج صحي من الداخل.",
     images: [
-      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: true,
