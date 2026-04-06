@@ -425,7 +425,7 @@ const Index = () => {
 
       {/* Reviews Section - Enhanced Design */}
       <section className="py-24 bg-gradient-to-b from-secondary/50 to-background overflow-hidden">
-        <div className="luxury-container mb-16">
+        <div className="luxury-container mb-14">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -435,14 +435,14 @@ const Index = () => {
             <span className="text-primary text-sm font-medium mb-3 block">شهادات العميلات</span>
             <h2 className="luxury-heading text-3xl md:text-4xl mb-4">ماذا تقول عميلاتنا</h2>
             <p className="text-muted-foreground max-w-xl mx-auto">أكثر من 50,000 عميلة سعيدة بتجربتهن معنا</p>
-            <div className="luxury-divider" />
+            <div className="luxury-divider mt-4" />
           </motion.div>
         </div>
 
-        {/* First Row - Moving Right to Left */}
-        <div className="relative mb-8">
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        {/* First Row - RTL */}
+        <div className="relative mb-6">
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           
           <div className="flex animate-scroll-rtl gap-6">
             {[...topReviews, ...topReviews, ...topReviews].map((review, index) => (
