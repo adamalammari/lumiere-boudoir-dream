@@ -78,7 +78,7 @@ export const products: Product[] = [
     description: "سيروم مضيء غني بفيتامين سي المستقر لإشراقة فورية وحماية من التصبغات.",
     images: [
       "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=600",
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=600"
+      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: true,
@@ -130,7 +130,7 @@ export const products: Product[] = [
     howToUse: "يُوزع بلطف على الوجه والرقبة مساءً بعد السيروم.",
     description: "كريم ليلي فاخر يعمل على تجديد البشرة أثناء النوم لتستيقظي ببشرة مشرقة وناعمة.",
     images: [
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=600",
+      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600",
       "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600"
     ],
     badges: { vegan: false, crueltyFree: true, tested: true },
@@ -285,7 +285,7 @@ export const products: Product[] = [
     howToUse: "يُوضع طبقة سميكة ويُترك 15-20 دقيقة أو طوال الليل للترطيب المكثف.",
     description: "ماسك كريمي فاخر يغمر البشرة بالترطيب المكثف لإنعاش البشرة المتعبة.",
     images: [
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=600"
+      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600"
     ],
     badges: { vegan: false, crueltyFree: true, tested: true },
     isNew: true,
@@ -319,7 +319,7 @@ export const products: Product[] = [
     description: "أحمر شفاه مخملي بتركيبة مرطبة طويلة الثبات ولون غني يدوم 8 ساعات.",
     images: [
       "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=600",
-      "https://images.unsplash.com/photo-1631214503851-2067f9cee01b?w=600"
+      "https://images.unsplash.com/photo-1591360236480-4dbb22f0f5ea?w=600"
     ],
     badges: { vegan: false, crueltyFree: true, tested: true },
     isNew: false,
@@ -350,7 +350,7 @@ export const products: Product[] = [
     howToUse: "يُوضع وحده أو فوق أحمر الشفاه للمعان إضافي.",
     description: "ملمع شفاه لامع بلمسة غير لزجة يضفي لمعاناً طبيعياً وترطيباً فورياً.",
     images: [
-      "https://images.unsplash.com/photo-1631214503851-2067f9cee01b?w=600"
+      "https://images.unsplash.com/photo-1591360236480-4dbb22f0f5ea?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: true,
@@ -383,7 +383,7 @@ export const products: Product[] = [
     howToUse: "يُوزع بإسفنجة أو فرشاة من منتصف الوجه للخارج. يُبنى للتغطية المطلوبة.",
     description: "كريم أساس فاخر بتغطية متوسطة قابلة للبناء ولمسة نهائية ساتان طبيعية.",
     images: [
-      "https://images.unsplash.com/photo-1631214524115-f1e9f5f9ac73?w=600",
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600",
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
@@ -501,7 +501,7 @@ export const products: Product[] = [
     howToUse: "يُوضع من الجذور للأطراف بحركات متعرجة. تُكرر للمزيد من الحجم.",
     description: "ماسكارا تمنح حجماً دراماتيكياً وتفصيلاً مثالياً دون تكتل.",
     images: [
-      "https://images.unsplash.com/photo-1631214499316-6b9b4c3b8a8a?w=600"
+      "https://images.unsplash.com/photo-1599733594230-6b823276abcc?w=600"
     ],
     badges: { vegan: false, crueltyFree: true, tested: true },
     isNew: false,
@@ -948,7 +948,7 @@ export const products: Product[] = [
     howToUse: "يُوضع تحت العين وعلى العيوب بالربت حتى يمتزج.",
     description: "كونسيلر بتغطية عالية يخفي الهالات والعيوب مع لمسة نهائية طبيعية.",
     images: [
-      "https://images.unsplash.com/photo-1631214524115-f1e9f5f9ac73?w=600"
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -1186,7 +1186,7 @@ export const products: Product[] = [
     howToUse: "تُستخدم المنتجات بالترتيب: منظف، تونر، سيروم، كريم نهار، كريم ليل.",
     description: "مجموعة متكاملة للعناية اليومية تحتوي على 5 منتجات أساسية بحجم كامل.",
     images: [
-      "https://images.unsplash.com/photo-1570194065650-d99fb4b38b15?w=600",
+      "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600",
       "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
@@ -1270,7 +1270,7 @@ export const products: Product[] = [
     howToUse: "يُوضع على الشفاه حسب الحاجة.",
     description: "بلسم شفاه غني يرطب ويحمي الشفاه الجافة طوال اليوم.",
     images: [
-      "https://images.unsplash.com/photo-1631214503851-2067f9cee01b?w=600"
+      "https://images.unsplash.com/photo-1591360236480-4dbb22f0f5ea?w=600"
     ],
     badges: { vegan: false, crueltyFree: true, tested: true },
     isNew: false,
@@ -1422,7 +1422,7 @@ export const products: Product[] = [
     howToUse: "يُوضع بعد المرطب وقبل كريم الأساس.",
     description: "برايمر مرطب يملس البشرة ويطيل ثبات المكياج مع إشراقة صحية.",
     images: [
-      "https://images.unsplash.com/photo-1631214524115-f1e9f5f9ac73?w=600"
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: false,
@@ -1634,7 +1634,7 @@ export const products: Product[] = [
     howToUse: "يُوزع بإسفنجة أو فرشاة للحصول على إشراقة طبيعية.",
     description: "كريم أساس مضيء يمنح تغطية متوسطة مع توهج صحي من الداخل.",
     images: [
-      "https://images.unsplash.com/photo-1631214524115-f1e9f5f9ac73?w=600"
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600"
     ],
     badges: { vegan: true, crueltyFree: true, tested: true },
     isNew: true,
